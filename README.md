@@ -7,10 +7,8 @@ Give the plugin a remote RSS/Atom feed, or maybe just some XML, and get the data
 {% set posts = data.channel.item %}
 
 {% for post in posts %}
-<div>
-    <h3>{{ post.title }}</h3>
-    {{ post.description | raw }}
-</div>
+<h3>{{ post.title }}</h3>
+{{ post.description | raw }}
 {% endfor %}
 ```
 
@@ -21,3 +19,5 @@ Drop the `feeder` folder into `craft/plugins`, then visit the Plugins section of
 ## Trouble?
 
 The plugin uses Craft's included Guzzle library to pull the URL you provide, so if things don't go well it's probably because of a bogus feed URL, a poorly-formatted feed, or something Matt overlooked during his five minutes of testing.
+
+GitHub issues and pull requests welcome!
