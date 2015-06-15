@@ -4,7 +4,7 @@ Give the plugin a remote RSS/Atom feed, or maybe just some XML, and get the data
 
 ```
 {% set feed = craft.feeder.getFeed('http://feeds.feedburner.com/workingconcept') %}
-{% set posts = data.channel.item %}
+{% set posts = feed.channel.item %}
 
 {% for post in posts %}
 <h3>{{ post.title }}</h3>
