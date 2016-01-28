@@ -23,8 +23,8 @@ class FeederService extends BaseApplicationComponent
 	{
 		if (empty($feedUrl))
 		{
-			throw new Exception("Missing feed URL.");
-			return;
+			Craft::log('Missing feed URL.', LogLevel::Warning, false, 'feeder');
+			return false;
 		}
 
 		$response = $this->_curlRequest($feedUrl);
@@ -35,8 +35,8 @@ class FeederService extends BaseApplicationComponent
 		}
 		else
 		{
-			throw new Exception("Couldn't parse feed.");
-			return;
+			Craft::log('Couldn\'t parse feed at '.$feedUrl.'.', LogLevel::Error, false, 'feeder');
+			return false;
 		}
 	}
 
